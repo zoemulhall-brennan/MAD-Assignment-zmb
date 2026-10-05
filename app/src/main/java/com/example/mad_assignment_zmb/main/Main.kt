@@ -22,7 +22,6 @@ import com.example.mad_assignment_zmb.models.YardMemStore
         } while (input != 0)
     }
 
-
     fun menu(): Int {
         println("\n----------------------------------")
         println(" MAIN MENU")
