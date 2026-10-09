@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MAD-Assignment-zmb"
 include(":app")
+include(":app")
