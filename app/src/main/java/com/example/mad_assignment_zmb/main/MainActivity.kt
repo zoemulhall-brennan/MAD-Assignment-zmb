@@ -1,5 +1,6 @@
 package com.example.mad_assignment_zmb
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Button
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(){
         val addButton = Button(this).apply {
             text = "Add Yard"
             setOnClickListener {
+                val intent = Intent(this@MainActivity, AddEditActivity::class.java)
                 startActivity(intent)
             }
         }
