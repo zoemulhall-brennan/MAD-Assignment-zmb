@@ -4,7 +4,7 @@ package com.example.mad_assignment_zmb
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mad_assignment_zmb.models.YardModel
@@ -23,76 +23,52 @@ class AddEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        createUserInterface()
+        setContentView(R.layout.activity_add_edit)
 
-        editingId = intent.getLongExtra("id", -1L)
 
-        if (editingId != -1L) {
+        titleInput =
+            findViewById(R.id.titleInput)
+
+        descriptionInput =
+            findViewById(R.id.descriptionInput)
+
+        priceInput =
+            findViewById(R.id.priceInput)
+
+        websitelinkInput =
+            findViewById(R.id.websiteLinkInput)
+
+        phone_numInput =
+            findViewById(R.id.phoneNumInput)
+
+        age_limitInput =
+            findViewById(R.id.ageLimitInput)
+
+        val saveButton =
+            findViewById<Button>(R.id.saveButton)
+
+        val cancelButton =
+            findViewById<Button>(R.id.cancelButton)
+
+        editingId =
+            intent.getLongExtra("id", -1L)
+                .takeIf { it != -1L }
+
+        if (editingId != null) {
+
+            findViewById<TextView>(R.id.editYardView)
+                .text = "Edit Yard"
+
             loadExistingYard(editingId!!)
         }
-    }
 
-    private fun createUserInterface() {
-
-        val root = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(32, 320, 32, 32)
+        saveButton.setOnClickListener {
+            saveYard()
         }
 
-        titleInput = EditText(this).apply {
-            hint = "Yard Name"
+        cancelButton.setOnClickListener {
+            finish()
         }
-
-        descriptionInput = EditText(this).apply {
-            hint = "Description"
-        }
-
-        priceInput = EditText(this).apply {
-            hint = "Price"
-            inputType =
-                android.text.InputType.TYPE_CLASS_NUMBER or
-                        android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
-        }
-
-        websitelinkInput = EditText(this).apply {
-            hint = "Website URL"
-        }
-
-        phone_numInput = EditText(this).apply {
-            hint = "Phone Number"
-        }
-
-        age_limitInput = EditText(this).apply {
-            hint = "Age Limit for Horse Riding Lessons"
-        }
-
-
-        val saveButton = Button(this).apply {
-            text = "Save"
-
-            setOnClickListener {
-                saveYard()
-            }
-        }
-
-        val cancelButton = Button(this).apply {
-            text = "Cancel"
-
-            setOnClickListener {
-                finish()
-            }
-        }
-
-        root.addView(titleInput)
-        root.addView(descriptionInput)
-        root.addView(priceInput)
-        root.addView(websitelinkInput)
-        root.addView(phone_numInput)
-        root.addView(age_limitInput)
-        root.addView(saveButton)
-        root.addView(cancelButton)
-
-        setContentView(root)
     }
 
     private fun loadExistingYard(id: Long) {
@@ -139,7 +115,7 @@ class AddEditActivity : AppCompatActivity() {
         }
 
 
-        if (editingId == null || editingId == -1L) {
+        if (editingId == null){
 
             val yard = YardModel(
                 title = title,
