@@ -2,10 +2,7 @@ package com.example.mad_assignment_zmb
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,11 +25,11 @@ class MainActivity : AppCompatActivity(){
         val addNewYardButton =
             findViewById<Button>(R.id.addYardButton)
 
-       /* viewYardButton.setOnClickListener {
+       viewYardButton.setOnClickListener {
             startActivity(
                 Intent(this, YardListActivity::class.java)
             )
-        } */
+        }
 
         addNewYardButton.setOnClickListener {
             startActivity(
