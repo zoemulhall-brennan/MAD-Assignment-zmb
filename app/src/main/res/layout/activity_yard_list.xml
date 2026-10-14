@@ -6,10 +6,10 @@
 
     <TextView
         android:id="@+id/yardListTitle"
+        style="@style/HeaderTitle"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_weight="1"
-        android:background="#45BCAE"
         android:paddingTop="50dp"
         android:text="Yard List"
         android:textAlignment="center"
@@ -20,15 +20,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/yardRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="650dp"
         android:layout_weight="1" />
 
     <Button
         android:id="@+id/returnButton"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_weight="1"
-        android:background="#45BCAE"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:text="Back To Menu"
         android:textAlignment="center"
         android:textColor="#FAF8F8"

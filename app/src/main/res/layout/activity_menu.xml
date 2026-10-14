@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/background_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="920dp"
             app:srcCompat="@drawable/livery_hero_1__jpg"
             tools:visibility="visible" />
 
@@ -26,9 +26,9 @@
 
             <TextView
                 android:id="@+id/menuTitle"
+                style="@style/HeaderTitle"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="#45BCAE"
+                android:layout_height="wrap_content"
                 android:padding="40dp"
                 android:text="EquiFind"
                 android:textAlignment="center"
@@ -49,8 +49,11 @@
             <Button
                 android:id="@+id/listYardButton"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="#45BCAE"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
                 android:text="List Yards"
                 android:textColor="#FDFDFD"
                 android:textSize="20sp"
@@ -59,8 +62,9 @@
             <Button
                 android:id="@+id/addYardButton"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="#45BCAE"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="Add Yard"
                 android:textColor="#FBFBFB"
                 android:textSize="20sp"
