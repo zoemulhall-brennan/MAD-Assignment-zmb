@@ -10,7 +10,7 @@
         android:id="@+id/yardListTitle"
         style="@style/HeaderTitle"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_weight="1"
         android:paddingTop="50dp"
         android:text="Yard List"
@@ -18,6 +18,14 @@
         android:textColor="#FAF8F8"
         android:textSize="34sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/searchInput"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="🔍Search Yards"
+        android:inputType="text" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/yardRecyclerView"
