@@ -68,7 +68,7 @@ class YardAdapter (
                 "${yard.id}: ${yard.title}"
 
             holder.descriptionText.text =
-                yard.desc
+                "Description: ${yard.desc}"
 
             holder.priceText.text =
                 "Price €${yard.price}"

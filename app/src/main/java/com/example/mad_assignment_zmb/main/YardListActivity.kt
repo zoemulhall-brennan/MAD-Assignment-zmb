@@ -24,11 +24,11 @@ class YardListActivity : AppCompatActivity() {
             yards = AppData.yards.findAll(),
 
             onEdit = { yard ->
-                editMark(yard)
+                editYard(yard)
             },
 
             onDelete = { yard ->
-                deleteMark(yard)
+                deleteYard(yard)
             }
         )
 
@@ -59,7 +59,7 @@ class YardListActivity : AppCompatActivity() {
         }
     }
 
-    private fun editMark(yard: YardModel) {
+    private fun editYard(yard: YardModel) {
 
         val intent =
             Intent(this, AddEditActivity::class.java)
@@ -69,7 +69,7 @@ class YardListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun deleteMark(yard: YardModel) {
+    private fun deleteYard(yard: YardModel) {
 
         AppData.yards.delete(yard.id)
 
