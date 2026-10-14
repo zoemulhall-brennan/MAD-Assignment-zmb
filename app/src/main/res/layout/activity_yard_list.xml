@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbarSize="15dp"
+    android:scrollbarThumbVertical="@color/material_dynamic_neutral40">
 
     <TextView
         android:id="@+id/yardListTitle"
@@ -21,7 +23,12 @@
         android:id="@+id/yardRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="15dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbarThumbVertical="@color/material_dynamic_neutral_variant80"
+        android:scrollbars="vertical" />
 
     <Button
         android:id="@+id/returnButton"
