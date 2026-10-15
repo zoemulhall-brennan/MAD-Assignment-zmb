@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import timber.log.Timber
 import com.example.mad_assignment_zmb.models.YardModel
 
 class AddEditActivity : AppCompatActivity() {
@@ -73,6 +74,8 @@ class AddEditActivity : AppCompatActivity() {
 
     private fun loadExistingYard(id: Long) {
 
+        Timber.d("Editing yard id=$id")
+
         val yard = AppData.yards.findOne(id)
 
         if (yard == null) {
@@ -117,6 +120,8 @@ class AddEditActivity : AppCompatActivity() {
 
         if (editingId == null){
 
+            Timber.d("Creating new yard")
+
             val yard = YardModel(
                 title = title,
                 desc = description,
@@ -135,6 +140,8 @@ class AddEditActivity : AppCompatActivity() {
             ).show()
 
         } else {
+
+            Timber.d("Editing existing yard")
 
             val yard = YardModel(
                 id = editingId!!,

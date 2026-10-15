@@ -6,8 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import timber.log.Timber
 import com.example.mad_assignment_zmb.models.YardModel
 
 class YardListActivity : AppCompatActivity() {
@@ -26,14 +28,17 @@ class YardListActivity : AppCompatActivity() {
         adapter = YardAdapter(
             yards = AppData.yards.findAll(),
 
-            onEdit = { yard ->
-                editYard(yard)
-            },
-
-            onDelete = { yard ->
-                deleteYard(yard)
+            listener = object : OnYardListener {
+                override fun onYardClick(yard: YardModel) {
+                    editYard(yard)
+                }
+                override fun onYardLongClick(yard: YardModel): Boolean {
+                    confirmDeleteYard(yard)
+                    return true
+                }
             }
         )
+
 
         recyclerView.layoutManager =
             LinearLayoutManager(this)
@@ -83,6 +88,7 @@ class YardListActivity : AppCompatActivity() {
 
     private fun editYard(yard: YardModel) {
 
+        Timber.d("Editing yard id=${yard.id}, title=${yard.title}")
         val intent =
             Intent(this, AddEditActivity::class.java)
 
@@ -91,7 +97,21 @@ class YardListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun confirmDeleteYard(yard: YardModel) {
+
+        AlertDialog.Builder(this)
+            .setTitle("Delete yard?")
+            .setMessage("Are you sure you want to delete \"${yard.title}\"?")
+            .setPositiveButton("Delete") { _, _ ->
+                deleteYard(yard)     // only runs if user taps "Delete"
+            }
+            .setNegativeButton("Cancel", null)   // null = do nothing
+            .show()
+    }
+
     private fun deleteYard(yard: YardModel) {
+
+        Timber.d("Deleting yard id=${yard.id}, title=${yard.title}")
 
         AppData.yards.delete(yard.id)
 

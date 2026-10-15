@@ -10,8 +10,7 @@ import com.example.mad_assignment_zmb.models.YardModel
 
 class YardAdapter (
     private var yards: List<YardModel>,
-    private val onEdit: (YardModel) -> Unit,
-    private val onDelete: (YardModel) -> Unit
+    private val listener: OnYardListener
     ) : RecyclerView.Adapter<YardAdapter.YardViewHolder>() {
 
         class YardViewHolder(itemView: View) :
@@ -35,11 +34,6 @@ class YardAdapter (
             val ageLimitText: TextView =
                 itemView.findViewById(R.id.ageLimitText)
 
-            val editButton: Button =
-                itemView.findViewById(R.id.editButton)
-
-            val deleteButton: Button =
-                itemView.findViewById(R.id.deleteButton)
         }
 
         override fun onCreateViewHolder(
@@ -82,13 +76,17 @@ class YardAdapter (
             holder.ageLimitText.text =
                 "Age Limit for Horse-Riding Lessons: ${yard.age_limit}"
 
-            holder.editButton.setOnClickListener {
-                onEdit(yard)
+            holder.itemView.setOnClickListener {
+
+                listener.onYardClick(yard)
+
+            }
+            holder.itemView.setOnLongClickListener {
+
+                listener.onYardLongClick(yard)
+
             }
 
-            holder.deleteButton.setOnClickListener {
-                onDelete(yard)
-            }
         }
 
         override fun getItemCount(): Int {

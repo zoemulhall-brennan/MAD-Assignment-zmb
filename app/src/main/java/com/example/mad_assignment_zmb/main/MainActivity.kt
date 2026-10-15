@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity(){
         }
 
         super.onCreate(savedInstanceState)
+
+        Timber.plant(Timber.DebugTree())
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.equiFind_linearLayout)) { v, insets ->
