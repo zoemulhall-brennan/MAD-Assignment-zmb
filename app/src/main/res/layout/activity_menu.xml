@@ -14,7 +14,8 @@
         <ImageView
             android:id="@+id/background_image"
             android:layout_width="match_parent"
-            android:layout_height="920dp"
+            android:layout_height="880dp"
+            android:layout_marginTop="40dp"
             app:srcCompat="@drawable/livery_hero_1__jpg"
             tools:visibility="visible" />
 
@@ -39,7 +40,7 @@
                 style="@style/HeaderTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="40dp"
+                android:padding="25dp"
                 android:text="EquiFind"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -61,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="8dp"
                 android:text="List Yards"
