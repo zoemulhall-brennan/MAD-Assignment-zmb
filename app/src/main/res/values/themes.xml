@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MADAssignmentzmb" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.MADAssignmentzmb" parent="Theme.Material3.DayNight.NoActionBar" >
+        <item name="colorPrimary">@color/teal_Light</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+    </style>
+
+    <style name="HeaderTitle">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
 </resources>

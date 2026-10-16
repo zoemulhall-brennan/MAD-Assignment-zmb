@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbarSize="15dp"
+    android:scrollbarThumbVertical="@color/material_dynamic_neutral40">
 
     <TextView
         android:id="@+id/yardListTitle"
+        style="@style/HeaderTitle"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_weight="1"
-        android:background="#45BCAE"
         android:paddingTop="50dp"
         android:text="Yard List"
         android:textAlignment="center"
@@ -17,18 +19,30 @@
         android:textSize="34sp"
         android:textStyle="bold" />
 
+    <EditText
+        android:id="@+id/searchInput"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="🔍Search Yards"
+        android:inputType="text" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/yardRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:layout_weight="1" />
+        android:layout_height="650dp"
+        android:layout_weight="1"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="15dp"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbarThumbVertical="@color/material_dynamic_neutral_variant80"
+        android:scrollbars="vertical" />
 
     <Button
         android:id="@+id/returnButton"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_weight="1"
-        android:background="#45BCAE"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:text="Back To Menu"
         android:textAlignment="center"
         android:textColor="#FAF8F8"

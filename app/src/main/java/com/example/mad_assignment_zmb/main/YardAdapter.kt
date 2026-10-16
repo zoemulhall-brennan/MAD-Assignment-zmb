@@ -3,15 +3,15 @@ package com.example.mad_assignment_zmb
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.net.Uri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mad_assignment_zmb.models.YardModel
 
 class YardAdapter (
     private var yards: List<YardModel>,
-    private val onEdit: (YardModel) -> Unit,
-    private val onDelete: (YardModel) -> Unit
+    private val listener: OnYardListener
     ) : RecyclerView.Adapter<YardAdapter.YardViewHolder>() {
 
         class YardViewHolder(itemView: View) :
@@ -35,11 +35,12 @@ class YardAdapter (
             val ageLimitText: TextView =
                 itemView.findViewById(R.id.ageLimitText)
 
-            val editButton: Button =
-                itemView.findViewById(R.id.editButton)
+            val yard_image: ImageView =
+                itemView.findViewById(R.id.yard_image) // ImageView to display the selected image
 
-            val deleteButton: Button =
-                itemView.findViewById(R.id.deleteButton)
+            val noImageText: TextView =
+                itemView.findViewById(R.id.noImageText) // TextView to display "No image to display"
+
         }
 
         override fun onCreateViewHolder(
@@ -68,7 +69,7 @@ class YardAdapter (
                 "${yard.id}: ${yard.title}"
 
             holder.descriptionText.text =
-                yard.desc
+                "Description: ${yard.desc}"
 
             holder.priceText.text =
                 "Price €${yard.price}"
@@ -82,13 +83,30 @@ class YardAdapter (
             holder.ageLimitText.text =
                 "Age Limit for Horse-Riding Lessons: ${yard.age_limit}"
 
-            holder.editButton.setOnClickListener {
-                onEdit(yard)
+            if (yard.select_image.isNotEmpty()) { // Check if there's an image URI
+                holder.yard_image.setImageURI(Uri.parse(yard.select_image)) // Display the preview on screen
+            } else {
+                holder.yard_image.setImageURI(null) // Clear the image if there's no URI
             }
 
-            holder.deleteButton.setOnClickListener {
-                onDelete(yard)
+            if (yard.select_image.isEmpty()) { // Check if there's no image URI
+                holder.noImageText.visibility = View.VISIBLE // Show the "No image to display" TextView
+            } else {
+                holder.noImageText.visibility = View.GONE // Hide the "No image to display" TextView
             }
+
+
+            holder.itemView.setOnClickListener {
+
+                listener.onYardClick(yard)
+
+            }
+            holder.itemView.setOnLongClickListener {
+
+                listener.onYardLongClick(yard)
+
+            }
+
         }
 
         override fun getItemCount(): Int {

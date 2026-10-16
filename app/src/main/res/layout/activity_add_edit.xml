@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/editYardView"
+        style="@style/HeaderTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_weight="1"
-        android:background="#45BCAE"
         android:paddingTop="50dp"
-        android:text="Edit Yard"
+        android:text="Add/Edit Yard"
         android:textAlignment="center"
         android:textColor="#FAF8F8"
         android:textSize="34sp"
@@ -21,7 +22,6 @@
         android:id="@+id/titleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Yard Name"
         android:inputType="text" />
@@ -30,7 +30,6 @@
         android:id="@+id/descriptionInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Description"
         android:inputType="text" />
@@ -39,7 +38,6 @@
         android:id="@+id/priceInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Price"
         android:inputType="number|numberDecimal" />
@@ -48,7 +46,6 @@
         android:id="@+id/websiteLinkInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Website URL"
         android:inputType="text|textWebEmailAddress" />
@@ -57,7 +54,6 @@
         android:id="@+id/phoneNumInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone" />
@@ -66,10 +62,23 @@
         android:id="@+id/ageLimitInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Age Limit for Horse-Riding Lessons"
         android:inputType="text" />
+
+    <Button
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose an image" />
+
+    <ImageView
+        android:id="@+id/select_imageInput"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/saveButton"
@@ -77,9 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="#45BCAE"
+        android:layout_marginBottom="10dp"
         android:text="Save"
         android:textColor="#FAF9F9"
         android:textSize="20sp" />
@@ -90,9 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="#45BCAE"
+        android:layout_marginBottom="80dp"
         android:text="Cancel"
         android:textColor="#FDFBFB"
         android:textSize="20sp" />

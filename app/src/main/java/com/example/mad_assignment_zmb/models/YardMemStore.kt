@@ -24,6 +24,7 @@ class YardMemStore {
             foundYard.websitelink = yard.websitelink
             foundYard.phone_num = yard.phone_num
             foundYard.age_limit = yard.age_limit
+            foundYard.select_image = yard.select_image // Update the image URI
             true
         } else {
             false
