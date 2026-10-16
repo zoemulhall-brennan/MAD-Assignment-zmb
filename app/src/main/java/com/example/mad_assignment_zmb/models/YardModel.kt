@@ -8,6 +8,7 @@ data class YardModel (
     var websitelink: String = "",
     var phone_num: String = "",
     var age_limit: String = "",
+    var select_image: String = "" // New property to store the selected image URI
 
 )
 
